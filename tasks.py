@@ -1,6 +1,6 @@
 from crewai import Task
 from tools import tool
-from agents import MarketResearchAgent, Use_case_Agent
+from agents import MarketResearchAgent, Use_case_Agent, Resource_Collection_Agent
 
 MarketResearchTask = Task(
     description=(
@@ -23,4 +23,21 @@ UseCaseTask = Task(
     agent=Use_case_Agent,
     async_execution=False,
     output_file="use_case.txt"
+)
+
+ResourceCollectionTask = Task(
+    description="Using the use cases generated  on {topic}, analyze industry trends and extract relevant datasets from kaggle, hugging face , git hub.",
+    expected_output=(
+    "Markdown report with a list of 5–10 relevant datasets or repositories. "
+    "Each item should include:\n"
+    "- **Title**\n"
+    "- **Platform** (Kaggle / GitHub / Hugging Face)\n"
+    "- **Direct Link**\n"
+    "- **Short Description** (1–2 lines)\n"
+)
+,
+    
+    agent=Resource_Collection_Agent,
+    async_execution=False,
+    output_file="resource.txt"
 )

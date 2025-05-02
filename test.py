@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Get Serper API key
-SERPER_API_KEY = os.getenv("SERPER_API_KEY")
+'''SERPER_API_KEY = os.getenv("SERPER_API_KEY")
 
 # Check if key exists
 if not SERPER_API_KEY:
@@ -33,4 +33,7 @@ if response.status_code == 200:
     print("Sample result:", response.json())
 else:
     print(f"❌ Failed. Status Code: {response.status_code}")
-    print("Response:", response.text)
+    print("Response:", response.text)'''
+
+groq_api_key=os.getenv("GROQ_API_KEY")
+print(groq_api_key)
