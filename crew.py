@@ -1,9 +1,9 @@
 from crewai import Process , Crew
-from tools import tool
-from agents import MarketResearchAgent, Use_case_Agent,Resource_Collection_Agent
+
+from agents import MarketResearchAgent, ResourceCollectionAgent,UseCaseAgent
 from tasks import MarketResearchTask,UseCaseTask,ResourceCollectionTask
 
-crew=Crew(agents=[MarketResearchAgent,Use_case_Agent,Resource_Collection_Agent],
+crew=Crew(agents=[MarketResearchAgent,UseCaseAgent,ResourceCollectionAgent],
           tasks=[MarketResearchTask,UseCaseTask, ResourceCollectionTask],
           
           process=Process.sequential)

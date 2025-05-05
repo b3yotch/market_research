@@ -1,6 +1,6 @@
 from crewai import Task
-from tools import tool
-from agents import MarketResearchAgent, Use_case_Agent, Resource_Collection_Agent
+
+from agents import MarketResearchAgent, UseCaseAgent, ResourceCollectionAgent
 
 MarketResearchTask = Task(
     description=(
@@ -20,7 +20,7 @@ UseCaseTask = Task(
     description="Using the market research conducted on {topic}, analyze industry trends and suggest GenAI/LLM/ML use cases. Recommend improvements in customer experience, operations, or innovation. Also based on the market research agents' competitor analysis  suggest appropriate measures to outdo them",
     expected_output="Markdown report with sections: [Industry Trends], [Use Cases], [Suggested Improvements using GenAI, LLM, ML]",
     
-    agent=Use_case_Agent,
+    agent=UseCaseAgent,
     async_execution=False,
     output_file="use_case.txt"
 )
@@ -37,7 +37,7 @@ ResourceCollectionTask = Task(
 )
 ,
     
-    agent=Resource_Collection_Agent,
+    agent=ResourceCollectionAgent,
     async_execution=False,
     output_file="resource.txt"
 )
